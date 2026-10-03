@@ -1145,6 +1145,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prefix-caching-engine-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefix caching engine setting
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1964,6 +1975,8 @@
       
         
       
+        
+      
     
     
     
@@ -2111,6 +2124,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/external-pr-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External PR Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/rfc/" class="md-nav__link">
         
   
@@ -2218,10 +2259,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
         
           
-          <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
             
   
   
@@ -2239,8 +2280,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2374,10 +2415,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
         
           
-          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
             
   
   
@@ -2395,8 +2436,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2476,7 +2517,7 @@
   <span class="md-ellipsis">
     
   
-    System Invariants (INV-1-INV-13)
+    System Invariants
   
 
     
@@ -2558,10 +2599,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_11" >
         
           
-          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
             
   
   
@@ -2579,8 +2620,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3178,6 +3219,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prefix-caching-engine-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefix caching engine setting
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3418,7 +3470,7 @@
 <p>The <code>LatencyModel</code> interface determines how BLIS estimates GPU step time for each batch iteration. BLIS ships two backends -- <strong>trained-physics</strong> (default, physics-informed roofline with MoE-aware corrections) and <strong>roofline</strong> (pure analytical) -- and the pluggable architecture supports adding custom backends.</p>
 <p><strong>Migration note:</strong> Three legacy backends have been removed (<code>blackbox</code>, <code>crossmodel</code>, <code>trained-roofline</code>). Use <code>--latency-model trained-physics</code> instead, which supersedes all three with improved accuracy and MoE support.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Trained-physics mode (default) — roofline × architecture-aware basis functions × learned corrections</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>qwen/qwen3-14b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>qwen/qwen3-14b<span class="w"> </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--num-instances<span class="w"> </span><span class="m">4</span><span class="w"> </span>--rate<span class="w"> </span><span class="m">100</span><span class="w"> </span>--num-requests<span class="w"> </span><span class="m">500</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Roofline mode — pure analytical estimation from model architecture (explicit flag)</span>
@@ -3437,15 +3489,17 @@
 <p>Roofline mode computes step time analytically from model architecture (FLOPs, parameter count) and hardware specifications (compute throughput, memory bandwidth). It does not require pre-trained coefficients, making it suitable for new models.</p>
 <h3 id="the-latency-model-roofline-flag">The <code>--latency-model roofline</code> Flag<a class="headerlink" href="#the-latency-model-roofline-flag" title="Permanent link">&para;</a></h3>
 <p>The simplest way to use roofline mode:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>qwen/qwen3-14b<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>qwen/qwen3-14b<span class="w"> </span>--catalog<span class="w"> </span>blis-catalog<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--latency-model<span class="w"> </span>roofline<span class="w"> </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
-<p>This auto-resolves both required inputs:</p>
+<p><code>--catalog</code> (or the <code>BLIS_CATALOG</code> environment variable) names the model catalog clone root, and
+there is <strong>no default and no search path</strong> (#1731) — a run with neither is refused naming
+both forms. Given it, the two required inputs resolve as:</p>
 <ol>
-<li><strong>Model config</strong> -- checks <code>model_configs/</code> for a cached <code>config.json</code>, fetches from HuggingFace on miss</li>
+<li><strong>Model config</strong> -- reads the catalog entry at <code>&lt;catalog&gt;/models/&lt;model-short-name&gt;/config.json</code>; a model with no entry is refused, naming that path (nothing is fetched)</li>
 <li><strong>Hardware config</strong> -- uses the bundled <code>hardware_config.json</code></li>
 </ol>
-<p><strong>Supported hardware:</strong> The bundled <code>hardware_config.json</code> includes specs for <strong>H100</strong> (80 GB HBM3, 989.5 TFLOPS BF16, 3.35 TB/s), <strong>H200</strong> (141 GB HBM3e, 989.5 TFLOPS BF16, 4.8 TB/s — same Hopper compute die as H100, more/faster memory), <strong>A100-SXM</strong> (80 GB HBM2e, 312 TFLOPS BF16, 2.04 TB/s), <strong>A100-80</strong> (alias for A100-SXM), and <strong>L40S</strong> (48 GB GDDR6, 362 TFLOPS BF16, 0.864 TB/s). To use a different GPU, add an entry to <code>hardware_config.json</code> with the required fields (<code>TFlopsPeak</code>, <code>BwPeakTBs</code>, <code>mfuPrefill</code>, <code>mfuDecode</code>, <code>MemoryGiB</code>), plus <code>IntraNodeBwGBps</code>/<code>InterNodeBwGBps</code> if instances on that GPU may span nodes (see <a href="#inter-node-network-cost-trained-physics-only">Inter-Node Network Cost</a>) and reference it via <code>--hardware &lt;name&gt;</code>.</p>
+<p><strong>Supported hardware:</strong> The bundled <code>hardware_config.json</code> includes specs for <strong>H100</strong> (80 GB HBM3, 989.5 TFLOPS BF16, 3.35 TB/s), <strong>H200</strong> (141 GB HBM3e, 989.5 TFLOPS BF16, 4.8 TB/s — same Hopper compute die as H100, more/faster memory), <strong>A100-SXM</strong> (80 GB HBM2e, 312 TFLOPS BF16, 2.04 TB/s), <strong>A100-80</strong> (alias for A100-SXM), and <strong>L40S</strong> (48 GB GDDR6, 362 TFLOPS BF16, 0.864 TB/s). To use a different GPU, add an entry to <code>hardware_config.json</code> with the required fields (<code>TFlopsPeak</code>, <code>BwPeakTBs</code>, <code>mfuPrefill</code>, <code>mfuDecode</code>, <code>MemoryGiB</code>), plus <code>IntraNodeBwGBps</code>/<code>InterNodeBwGBps</code> if instances on that GPU may span nodes (see <a href="#inter-node-network-cost-trained-physics-only">Inter-Node Network Cost</a>) and reference it via <code>--hardware &lt;name&gt;</code>. The file is parsed strictly (#1728): an unrecognized or non-canonically-cased key is a hard error naming the key and the GPU entry, so a typo cannot silently read as 0 — only <code>_comment</code> / <code>_comment_interconnect</code> / <code>Provenance</code> are accepted and ignored (<code>Provenance</code> is the structured provenance tag catalog <code>hardware/</code> entries carry, R2H2 / blis-catalog#10; its enum is validated by the catalog CI gate, not this loader).</p>
 <p><strong>Validated models:</strong> Any dense or MoE transformer with a HuggingFace <code>config.json</code> works. The following have been validated end-to-end:</p>
 <ul>
 <li><a href="https://huggingface.co/meta-llama/Llama-2-7b-hf">Llama-2-7B</a> / <a href="https://huggingface.co/meta-llama/Llama-2-70b-hf">Llama-2-70B</a></li>
@@ -3453,15 +3507,16 @@
 <li><a href="https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1">Mixtral-8x7B</a> (MoE)</li>
 <li><a href="https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf">CodeLlama-34B</a></li>
 </ul>
-<p>Set <code>HF_TOKEN</code> to access gated models (e.g., <a href="https://huggingface.co/meta-llama/Llama-2-7b-hf">Llama-2</a>) and avoid rate limits:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_TOKEN</span><span class="o">=</span>your_token_here
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>meta-llama/llama-3.1-8b-instruct<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--latency-model<span class="w"> </span>roofline<span class="w"> </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">1</span>
+<p>Each of these has a committed catalog entry. A model that does not is refused — commit its <code>config.json</code> at <code>&lt;catalog&gt;/models/&lt;model&gt;/config.json</code> first (<code>HF_TOKEN</code> is only needed to download a gated model's config by hand; BLIS itself makes no HuggingFace requests).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>meta-llama/llama-3.1-8b-instruct<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--latency-model<span class="w"> </span>roofline<span class="w"> </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <h3 id="manual-configuration">Manual Configuration<a class="headerlink" href="#manual-configuration" title="Permanent link">&para;</a></h3>
-<p>For full control, provide configs explicitly:</p>
+<p>For full control, point <code>--catalog</code> at your own catalog and supply an explicit hardware
+config. <code>--catalog</code> names the catalog clone ROOT, so the model's <code>config.json</code> is read from
+<code>./my-catalog/models/my-custom-model/config.json</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>my-custom-model<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--model-config-folder<span class="w"> </span>./my-model-configs/<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--catalog<span class="w"> </span>./my-catalog/<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--hardware-config<span class="w"> </span>./my-hardware-config.json<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">4</span>
 </code></pre></div>
@@ -3469,25 +3524,44 @@
 <p>Any model with a HuggingFace <code>config.json</code> can use roofline mode:</p>
 <ol>
 <li>Download <code>config.json</code> from HuggingFace</li>
-<li>Place it in <code>model_configs/&lt;model-name&gt;/config.json</code></li>
+<li>Place it in <code>&lt;catalog&gt;/models/&lt;model-name&gt;/config.json</code>, where <code>&lt;catalog&gt;</code> is the directory
+   you pass to <code>--catalog</code> — this step is required. BLIS does not fetch configs at run time,
+   so a model with no catalog entry is refused rather than downloaded (NS-6). Commit the file
+   to the <a href="https://github.com/inference-sim/blis-catalog"><code>blis-catalog</code></a> repository to add the
+   model to the shared catalog for everyone.</li>
 <li>Run with <code>--latency-model roofline --hardware &lt;GPU&gt; --tp &lt;N&gt;</code></li>
 </ol>
-<p>Or let BLIS fetch it automatically with <code>--latency-model roofline</code>.</p>
 <h3 id="tensor-parallelism-and-roofline">Tensor Parallelism and Roofline<a class="headerlink" href="#tensor-parallelism-and-roofline" title="Permanent link">&para;</a></h3>
 <p>The <code>--tp</code> flag divides FLOPs and memory traffic across TP ranks:</p>
 <ul>
 <li>Higher TP reduces per-GPU step time (more parallelism)</li>
-<li>Higher TP reduces KV blocks per GPU (memory split across ranks)</li>
+<li>Higher TP usually <em>increases</em> <code>total_kv_blocks</code> — it adds whole GPUs of memory to the budget while the model weights stay a fixed total shared across them</li>
 </ul>
+<p><code>total_kv_blocks</code> is a <strong>global</strong> count, not a per-GPU one: every TP rank stores its own shard of every block, so adding ranks does not divide the pool between them. (Whether TP sharding shrinks the <em>per-GPU</em> cost of a block depends on the attention architecture — it does for MHA/GQA, where KV heads are sharded, but not for MLA, where the compressed latent is replicated on every rank.) See <a href="../kv-cache/#how-the-auto-calculated-pool-is-sized">KV Cache Management</a> for the formula.</p>
 <p>When choosing between TP and replication (more instances): TP reduces per-request latency, replication increases throughput. For capacity planning, simulate both configurations.</p>
 <div class="admonition note">
 <p class="admonition-title">Automatic KV block calculation</p>
-<p>For both latency backends (roofline, trained-physics), <code>--total-kv-blocks</code> is automatically derived from model architecture and GPU memory if not explicitly set. The auto-calculated value accounts for TP (KV heads are sharded across ranks; total GPU memory scales with GPU count). Override with <code>--total-kv-blocks &lt;N&gt;</code> for non-standard deployments. The auto-calculation uses reference constants (90% GPU utilization, standard activation/overhead budgets matching the llm-d-benchmark capacity planner) and requires SwiGLU-family activations.</p>
+<p>For both latency backends (roofline, trained-physics), <code>--total-kv-blocks</code> is automatically derived from model architecture and GPU memory if not explicitly set. The auto-calculated value accounts for TP on both sides of its division: the memory budget scales with GPU count, and the cost of one global block is its per-GPU cost on every one of the TP GPUs (#1846). Override with <code>--total-kv-blocks &lt;N&gt;</code> for non-standard deployments. The auto-calculation uses reference constants (90% GPU utilization, standard activation/overhead budgets matching the llm-d-benchmark capacity planner) and requires SwiGLU-family activations. It is an analytical estimate rather than a reproduction of vLLM's own per-rank memory profiling, and stays slightly optimistic at high TP — pin <code>--total-kv-blocks</code> when the pool must match a specific deployment.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Automatic MaxModelLen derivation</p>
 <p>When using roofline or trained-physics mode and <code>--max-model-len</code> is not explicitly set, BLIS auto-derives it from <code>max_position_embeddings</code> in the HuggingFace <code>config.json</code>. For models with <code>rope_scaling</code>, the scaling factor is applied based on vLLM's blacklist approach: types <code>linear</code>, <code>dynamic</code>, <code>yarn</code>, <code>default</code>, and <code>mrope</code> apply the factor; types <code>su</code>, <code>longrope</code>, and <code>llama3</code> are excluded (these encode the full context in <code>max_position_embeddings</code>). For <code>yarn</code>, <code>original_max_position_embeddings</code> is used as the base when present. <code>gemma3</code> models skip <code>rope_scaling</code> entirely (<code>max_position_embeddings</code> is pre-scaled). The derived value is then capped at the KV-feasible maximum (<code>total_kv_blocks * block_size</code>) to prevent context windows from exceeding GPU memory capacity. Override with <code>--max-model-len</code> <N>` when needed.</p>
 </div>
+<h3 id="prefix-caching-engine-setting">Prefix caching engine setting<a class="headerlink" href="#prefix-caching-engine-setting" title="Permanent link">&para;</a></h3>
+<p><code>blis run</code> and <code>blis replay</code> expose <code>--no-enable-prefix-caching</code> to mirror vLLM's
+engine-level negative flag. The default is unchanged: prefix caching is enabled. When the
+flag is present, a newly admitted request receives no cross-request GPU prefix credit, so its
+prefill is charged from the start of the prompt. A request already in progress still resumes
+from its own computed position.</p>
+<p>The switch deliberately does <strong>not</strong> disable CPU/offload-tier reloads. vLLM treats local
+prefix-cache lookup and external KV reload as independent mechanisms, and BLIS keeps the same
+boundary. The setting is also a deployment input rather than trace data: re-supply
+<code>--no-enable-prefix-caching</code> on replay to reproduce a run (INV-13), like
+<code>--kv-cache-dtype</code>.</p>
+<p>Scope note: this flag currently gates batch-formation reuse only. The cluster routing scorers
+<code>precise-prefix-cache</code> and <code>no-hit-lru</code> still query cache affinity; making those scorers
+ignore affinity when engine prefix caching is disabled is a separate cluster-level follow-up
+rather than being silently conflated with the simulator gate in #1867.</p>
 <h2 id="how-trained-physics-works">How Trained-Physics Works<a class="headerlink" href="#how-trained-physics-works" title="Permanent link">&para;</a></h2>
 <p>Trained-physics mode applies <strong>learned correction factors</strong> to analytical roofline basis functions, combining the physical grounding of roofline with the accuracy of data-driven fitting. Coefficients are fitted from real vLLM measurements and generalize across model architectures, workloads, and TP configurations.</p>
 <p><strong>StepTime formula</strong> (10 beta coefficients in bundled defaults):</p>
@@ -3529,10 +3603,25 @@
 <p><strong>Supported hardware:</strong></p>
 <ul>
 <li><strong>H100</strong> (80 GB HBM3, 989.5 TFLOPS BF16 / 1979 TFLOPS FP8, 3.35 TB/s)</li>
-<li><strong>A100-SXM</strong> (80 GB HBM2e, 312 TFLOPS BF16, 2.04 TB/s)</li>
+<li><strong>H200</strong> (141 GB HBM3e, 989.5 TFLOPS BF16 / 1979 TFLOPS FP8, 4.8 TB/s — same Hopper compute die as H100)</li>
+<li><strong>A100-SXM</strong> (80 GB HBM2e, 312 TFLOPS BF16, 2.04 TB/s — Ampere has no FP8 tensor cores)</li>
 <li><strong>A100-80</strong> (alias for A100-SXM)</li>
-<li><strong>L40S</strong> (48 GB GDDR6, 362 TFLOPS BF16 / 1466 TFLOPS FP8, 0.864 TB/s)</li>
+<li><strong>L40S</strong> (48 GB GDDR6, 362 TFLOPS BF16 / 733 TFLOPS FP8, 0.864 TB/s)</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Peak FLOPs are the <strong>dense</strong> figures — never the with-sparsity ones</p>
+<p><code>TFlopsPeak</code> and <code>TFlopsFP8</code> are both dense tensor-core throughput, so their ratio is
+~2.0x on every entry (H100 1979/989.5, L40S 733/362.05). NVIDIA datasheets also quote a
+2x-larger <em>with-sparsity</em> number, and taking <code>TFlopsFP8</code> from that column while
+<code>TFlopsPeak</code> stays dense doubles the FP8 compute ceiling — which is exactly what the
+bundled L40S entry did until #1829 (it shipped <code>1466.0</code>, implying an impossible 4.05x
+ratio). When adding a GPU, read both numbers out of the same column. The ratio of every
+bundled entry is a hard test failure (<code>sim/latency/hw_fp8_ratio_test.go</code>), and every
+hardware table BLIS <em>reads</em> — a <code>&lt;catalog&gt;/hardware/&lt;gpu&gt;.yaml</code> entry or your own
+<code>--hardware</code> file — is checked at the load boundary, which <strong>warns on stderr naming the
+GPU</strong> rather than refusing the run (the band is a heuristic over today's NVIDIA parts, so
+a legitimate accelerator outside it must still run).</p>
+</div>
 <p><strong>Coefficients were trained on H100 traces</strong> but the roofline basis functions automatically scale to each GPU's compute/bandwidth specifications via hardware config. This enables the model to generalize across hardware without GPU-specific calibration.</p>
 <p><strong>Model architectures:</strong></p>
 <ul>
@@ -3562,7 +3651,7 @@
 </div>
 <p>For MoE deployments, trained-physics models data parallelism (<code>--dp</code>) and expert parallelism (<code>--enable-expert-parallel</code>) the way vLLM does (mirrors <code>vllm-project/vllm</code>):</p>
 <ul>
-<li><strong>Routed-expert weight/compute</strong> are scoped via the <code>ExpertPlacement</code> seam. <strong>Compute</strong> uses the flattened MoE group <code>moeGroup = TP·DP</code>. <strong>Weights</strong> use the <em>expert-shard</em> group (#1548), which equals <code>moeGroup</code> unless expert parallelism widens it: each GPU holds <code>numExperts/expertShardGroup</code> full-expert-equivalents. This replaces a batch-dependent heuristic, so MoE step time at <code>DP=1</code> intentionally differs from pre-DP/EP BLIS (a deliberate fidelity fix). Dense models at <code>DP=1</code> are byte-identical (INV-BC-DP1). For a <em>single</em> <code>ModelHardwareConfig</code> at <code>TP·DP</code>, both EP modes give per-GPU routed bytes <code>numExperts/(TP·DP)</code> and that matches vLLM: <code>FusedMoEParallelConfig.make</code> flattens TP across DP for MoE layers <em>unconditionally</em>. Under DP-as-placement the two modes separate, because a replica's own DP is 1 — see <a href="#expert-parallelism-ep-1548">Expert Parallelism</a>. The step-time and capacity models now agree on the same expert-shard group in both modes, closing the inconsistency <a href="https://github.com/inference-sim/inference-sim/issues/1666">#1666</a> tracks (that issue also covers the EP-<strong>off</strong> <code>DP&gt;1</code> baseline, which BLIS deliberately keeps conservative and #1548 does not change).</li>
+<li><strong>Routed-expert weight/compute</strong> are scoped via the <code>ExpertPlacement</code> seam. <strong>Compute</strong> uses the flattened MoE group <code>moeGroup = TP·DP</code>. <strong>Weights</strong> use the <em>expert-shard</em> group (#1548), which equals <code>moeGroup</code> unless expert parallelism widens it: each GPU holds <code>numExperts/expertShardGroup</code> full-expert-equivalents. That resident count is the <strong>ceiling</strong>, not the per-step charge: since <a href="https://github.com/inference-sim/inference-sim/issues/1849">#1849</a> the weight term scales it by the expected fraction of experts some token in the step actually routes to, <code>activatedFraction(B) = 1 − ((N−k)/N)^B</code> for <code>B</code> tokens in the step (the coupon-collector occupancy expectation the roofline backend has used since #764/#790, now shared by both backends). So MoE decode step time rises with the running batch again: <code>B=1</code> streams only the <code>~k</code> experts one token routes to, and <code>B → ∞</code> recovers the full resident count. Because the fraction is in <code>[0,1]</code> it only scales the ceiling <em>down</em>, so the #1548 expert-shard scoping is untouched. MoE step time at <code>DP=1</code> therefore intentionally differs both from pre-DP/EP BLIS and from pre-#1849 BLIS (deliberate fidelity fixes). Dense models at <code>DP=1</code> are byte-identical (INV-BC-DP1). For a <em>single</em> <code>ModelHardwareConfig</code> at <code>TP·DP</code>, both EP modes give per-GPU routed bytes <code>numExperts/(TP·DP)</code> and that matches vLLM: <code>FusedMoEParallelConfig.make</code> flattens TP across DP for MoE layers <em>unconditionally</em>. Under DP-as-placement the two modes separate, because a replica's own DP is 1 — see <a href="#expert-parallelism-ep-1548">Expert Parallelism</a>. The step-time and capacity models now agree on the same expert-shard group in both modes, closing the inconsistency <a href="https://github.com/inference-sim/inference-sim/issues/1666">#1666</a> tracks (that issue also covers the EP-<strong>off</strong> <code>DP&gt;1</code> baseline, which BLIS deliberately keeps conservative and #1548 does not change).</li>
 <li><strong>Sequence-split terms</strong> (attention/dense-FFN compute, KV read/write) gain a <code>/dp</code> factor — each DP rank processes ~<code>1/dp</code> of the tokens. Weights stay <code>/tp</code> (replicated across DP groups).</li>
 <li><strong>Shared experts</strong> (DeepSeek/Qwen-style) are charged for every token when the model exposes a shared-expert FFN dim; a no-op otherwise (including Llama-4 Scout until its shared-expert dim — <code>config.intermediate_size</code>, not <code>intermediate_size_mlp</code> which is the dense-layer FFN — is mapped).</li>
 <li><strong>MoE-FFN communication</strong> partitions on the <code>DP</code>-or-<code>EP</code> boundary: with EP off at <code>DP=1, TP&gt;1</code> an all-reduce over the TP group; at <code>DP&gt;1</code>, or whenever expert parallelism is on, a dispatch/combine all-to-all (β_EP). Exactly one of the two is charged.</li>
@@ -3629,6 +3718,25 @@ warns. It applies to EP-<strong>on</strong> only: with EP off the experts are te
 genuinely holds a <em>fraction</em> of every expert and a sub-1 value is the correct charge. The
 dispatch collective is deliberately <strong>not</strong> clamped — it really does span every rank in the
 group, however few experts they hold.</p>
+<p>The #1849 activated fraction that scales the resident weight bytes is <strong>global</strong> — computed
+from the model's <code>N</code> and <code>k</code> over the whole step — and is applied to each rank's resident
+count. EP ownership does <strong>not</strong> make that a per-rank approximation: under uniform top-k every
+expert carries the same activation probability <code>1 − ((N−k)/N)^B</code> whichever rank holds it, so by
+linearity of expectation a rank with <code>R</code> resident experts activates exactly <code>R ·
+activatedFraction(B)</code> of them in expectation, for any balanced placement. The residual
+approximations are elsewhere, and each vanishes at saturation:</p>
+<ul>
+<li><strong><code>B</code> is the step's own token population.</strong> For a single <code>ModelHardwareConfig</code> at <code>DP&gt;1</code>
+  that is already the group-wide count the <code>/dp</code> divisors presuppose — the right <code>B</code>, since
+  all-to-all dispatch means a rank's experts see the whole group's tokens. Under
+  DP-as-placement the two separate: the replica runs <code>DP=1</code> over its own batch while the
+  expert-shard group is the wider <em>logical</em> EP width, so <code>B</code> understates the tokens that
+  really dispatch to that rank and the fraction is charged <strong>low</strong> below saturation.</li>
+<li><strong>It prices the expectation, not a realized per-step count</strong> — the relative spread is widest
+  when a rank holds few whole experts (EP on over a wide group).</li>
+<li><strong>Uniform, independent, unskewed routing with no capacity limits</strong>, the shared pessimism of
+  the coupon-collector term itself; refinement deferred to #789.</li>
+</ul>
 <p>Compute is EP-mode-invariant on purpose: with EP on, the <code>EP</code> GPUs jointly process the
 whole group's tokens, so per-GPU FLOPs land on the same value tensor-sharding gives. EP
 re-organises expert <em>ownership</em>, not FLOPs. Weights are where the win is.</p>

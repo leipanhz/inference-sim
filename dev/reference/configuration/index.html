@@ -2058,6 +2058,8 @@
       
         
       
+        
+      
     
     
     
@@ -2205,6 +2207,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/external-pr-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External PR Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/rfc/" class="md-nav__link">
         
   
@@ -2312,10 +2342,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
         
           
-          <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
             
   
   
@@ -2333,8 +2363,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2468,10 +2498,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
         
           
-          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
             
   
   
@@ -2489,8 +2519,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2570,7 +2600,7 @@
   <span class="md-ellipsis">
     
   
-    System Invariants (INV-1-INV-13)
+    System Invariants
   
 
     
@@ -2652,10 +2682,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_11" >
         
           
-          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
             
   
   
@@ -2673,8 +2703,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3622,16 +3652,15 @@
 </ol>
 <p><strong>Hardware and TP</strong> (<code>--hardware</code>, <code>--tp</code>):</p>
 <ol>
-<li>Explicit CLI flags</li>
-<li><code>defaults.yaml</code> <code>defaults[]</code> entry — matched by <code>--model</code></li>
-<li>Error — roofline/trained-physics require these values</li>
+<li>Explicit CLI flags — the only source. Both are <strong>required</strong> on <code>blis run</code> and <code>blis replay</code></li>
+<li>Error — omitting either is refused naming the missing flag. There is no per-model fallback: the <code>defaults:</code> block that once supplied them is gone (NS-6, #1733; block removed in #1768)</li>
 </ol>
 <p><strong>KV cache blocks</strong> (<code>--total-kv-blocks</code>): See the detailed <a href="#resolution-process">Resolution Process</a> below — three layers: CLI flag, auto-calculation, or 1M default.</p>
 <p><strong>Workload parameters</strong> (<code>--rate</code>, <code>--num-requests</code>, <code>--prompt-tokens</code>, etc.):</p>
 <ol>
 <li><code>--workload-spec</code> YAML file — when set, all token distribution and arrival parameters come from the YAML; CLI distribution flags are ignored</li>
 <li>CLI distribution flags — when <code>--workload distribution</code> (default) and no <code>--workload-spec</code></li>
-<li>Named preset from <code>defaults.yaml</code> — when <code>--workload &lt;name&gt;</code> (e.g., <code>chatbot</code>)</li>
+<li>Named preset from the catalog (<code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code>, #1769) — when <code>--workload &lt;name&gt;</code> (e.g., <code>chatbot</code>)</li>
 <li>Hardcoded CLI flag defaults — (e.g., <code>--prompt-tokens 512</code>, <code>--output-tokens 512</code>)</li>
 </ol>
 <div class="admonition note">
@@ -3698,13 +3727,13 @@
 </tr>
 <tr>
 <td><code>--kv-transfer-bandwidth</code></td>
-<td>blocks/tick</td>
-<td>Transfer rate between GPU and CPU KV tiers</td>
+<td>tokens/tick</td>
+<td>Transfer rate between GPU and CPU KV tiers on the legacy <code>--kv-cpu-blocks</code> path. Unset ⇒ <strong>derived</strong> from the catalog <code>cpu_dram</code> device (#1819)</td>
 </tr>
 <tr>
 <td><code>--kv-transfer-base-latency</code></td>
 <td>ticks (μs)</td>
-<td>Fixed per-transfer overhead</td>
+<td>Fixed per-block overhead on the legacy CPU tier. Unset ⇒ derived from <code>cpu_dram.base_latency</code>; explicit <code>0</code> disables it</td>
 </tr>
 </tbody>
 </table>
@@ -3749,7 +3778,7 @@
 <td><code>--metrics-path</code></td>
 <td>string</td>
 <td>""</td>
-<td>File path to write MetricsOutput JSON (aggregate P50/P95/P99 TTFT, E2E, throughput stats). blis run only — blis replay uses <code>--results-path</code> instead. Empty = no file output.</td>
+<td>File path to write MetricsOutput JSON (aggregate P50/P95/P99 TTFT, E2E, throughput stats, plus the <code>cache_hit_rate</code> and <code>catalog</code> provenance fields when those apply). Accepted on <strong>both</strong> <code>blis run</code> and <code>blis replay</code> (#1583 added it to replay so <code>blis calibrate --sim-metrics</code> can read a replayed hit-rate). Distinct from replay's <code>--results-path</code>, which writes the <strong>per-request</strong> <code>[]SimResult</code> array and is replay-only. Empty = no file output.</td>
 </tr>
 </tbody>
 </table>
@@ -3798,14 +3827,14 @@
 <tr>
 <td><code>--kv-transfer-bandwidth</code></td>
 <td>float64</td>
-<td>100.0</td>
-<td>GPU-CPU transfer rate in blocks/tick. Required &gt; 0 when CPU blocks &gt; 0.</td>
+<td>unset ⇒ derive</td>
+<td>GPU↔CPU transfer rate in tokens/tick for the legacy <code>--kv-cpu-blocks</code> tier. Omit it to derive from <code>cpu_dram.read_bandwidth</code> with the R2G3b residual; supply a finite positive value to override it. A rate whose per-block charge exceeds the safe tick budget is refused. Passing <code>0</code> is invalid, not a request to derive.</td>
 </tr>
 <tr>
 <td><code>--kv-transfer-base-latency</code></td>
 <td>int64</td>
-<td>0</td>
-<td>Fixed per-transfer latency in ticks.</td>
+<td>unset ⇒ derive</td>
+<td>Fixed per-block latency in ticks. Omit it to derive from <code>cpu_dram.base_latency</code> (microseconds rounded up to whole ticks); an explicitly supplied <code>0</code> is a valid independent override. If either transfer flag is omitted, <code>&lt;catalog&gt;/devices/storage.yaml</code> must define <code>cpu_dram</code>; if both are supplied, the table is not read. Combined and cumulative transfer-latency additions are checked against <code>int64</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -3875,7 +3904,9 @@
 </tr>
 </tbody>
 </table>
-<p>When <code>--alpha-coeffs</code> and <code>--beta-coeffs</code> are not explicitly provided on the CLI, BLIS automatically loads pre-trained coefficients from <code>defaults.yaml</code> based on the model, GPU, and TP configuration. Explicitly passing <code>--alpha-coeffs 0,0,0</code> preserves zero coefficients (they are not overridden by defaults).</p>
+<p>When <code>--latency-model trained-physics</code> (the default) is in force and <code>--alpha-coeffs</code>/<code>--beta-coeffs</code> are not explicitly provided on the CLI, BLIS loads the coefficients from the single <code>trained_physics_coefficients</code> block in <code>defaults.yaml</code> (<code>alpha_coeffs</code> + <code>beta_coeffs</code>). That block is <strong>global — one set for every model, GPU and TP degree</strong>; there is no per-model, per-GPU or per-TP keyed lookup, and none has ever existed. Generalizing across architectures without a per-deployment fit is the point of the trained-physics backend: the roofline basis functions carry the architecture and hardware dependence, and the coefficients only correct them.</p>
+<p>The two flags must be supplied <strong>together or not at all</strong> (supplying one without the other is refused), so either both values come from the file or both come from the CLI. Explicitly passing <code>--alpha-coeffs 0,0,0</code> preserves zero coefficients — they are not overridden by the file, because the file is consulted only for a flag the user did not set.</p>
+<p><code>--latency-model roofline</code> reads no coefficients at all: it computes step time analytically, and passing either flag alongside an explicit <code>--latency-model roofline</code> is a hard error.</p>
 <h3 id="model-and-hardware-selection">Model and Hardware Selection<a class="headerlink" href="#model-and-hardware-selection" title="Permanent link">&para;</a></h3>
 <p>Maps to <code>ModelHardwareConfig</code>.</p>
 <table>
@@ -3898,13 +3929,13 @@
 <td><code>--hardware</code></td>
 <td>string</td>
 <td>""</td>
-<td>GPU type. Bundled options: <code>H100</code>, <code>A100-SXM</code>, <code>A100-80</code>. If empty, loaded from <code>defaults.yaml</code>. Add new GPUs to <code>hardware_config.json</code> (include <code>IntraNodeBwGBps</code>/<code>InterNodeBwGBps</code> if instances on that GPU may span nodes — see <a href="#interconnect-calibration">Interconnect Calibration</a>).</td>
+<td><strong>Required</strong> GPU type (<code>run</code> and <code>replay</code>). Bundled options: <code>H100</code>, <code>H200</code>, <code>A100-SXM</code>, <code>A100-80</code>, <code>L40S</code> (the full set of <code>hardware_config.json</code> entries — see <a href="../../guide/latency-models/#generalization-scope">Generalization Scope</a> for each one's specs). Never loaded from <code>defaults.yaml</code> — omitting it is refused naming the flag (NS-6, #1733). Add new GPUs to <code>hardware_config.json</code> (include <code>IntraNodeBwGBps</code>/<code>InterNodeBwGBps</code> if instances on that GPU may span nodes — see <a href="#interconnect-calibration">Interconnect Calibration</a>).</td>
 </tr>
 <tr>
 <td><code>--tp</code></td>
 <td>int</td>
 <td>0</td>
-<td>Tensor parallelism degree. If 0, loaded from <code>defaults.yaml</code>.</td>
+<td><strong>Required</strong> tensor parallelism degree, &gt; 0 (<code>run</code> and <code>replay</code>). Never loaded from <code>defaults.yaml</code> — omitting it is refused naming the flag (NS-6, #1733).</td>
 </tr>
 <tr>
 <td><code>--dp</code></td>
@@ -3942,6 +3973,12 @@
 <td>0</td>
 <td>Max total sequence length (input + output) in tokens. 0 = unlimited. Mirrors vLLM's <code>--max-model-len</code>. Auto-derived from <code>max_position_embeddings</code> in HuggingFace <code>config.json</code> for roofline/trained-physics backends. Applies <code>rope_scaling</code> factor for types <code>linear</code>, <code>dynamic</code>, <code>yarn</code>, <code>default</code>, <code>mrope</code>; excludes <code>su</code>, <code>longrope</code>, <code>llama3</code>; skips entirely for <code>gemma3</code> models. Capped at KV-feasible maximum.</td>
 </tr>
+<tr>
+<td><code>--no-enable-prefix-caching</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Disable cross-request GPU prefix reuse, mirroring vLLM's <code>--no-enable-prefix-caching</code>. Default false means prefix caching remains enabled (INV-6). The flag affects batch-formation work only; CPU/offload reload remains independent. Re-supply it identically on <code>replay</code> for INV-13; it is not persisted in the TraceV2 header.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="roofline-mode">Roofline Mode<a class="headerlink" href="#roofline-mode" title="Permanent link">&para;</a></h3>
@@ -3960,13 +3997,13 @@
 <td><code>--latency-model</code></td>
 <td>string</td>
 <td>"trained-physics"</td>
-<td>Latency model backend: <code>trained-physics</code> (default), <code>roofline</code>. Both backends auto-fetch HuggingFace config.json for KV block auto-calculation (may require network access). Both require <code>config.json</code> for latency estimation and KV sizing. Requires <code>--hardware</code> and <code>--tp</code>. Set <code>HF_TOKEN</code> for gated models.</td>
+<td>Latency model backend: <code>trained-physics</code> (default), <code>roofline</code>. Both read the model's <code>config.json</code> from the catalog located by <code>--catalog</code> / <code>BLIS_CATALOG</code> for latency estimation and KV sizing; an uncatalogued model is refused and nothing is fetched. Both require <code>--hardware</code> and <code>--tp</code>.</td>
 </tr>
 <tr>
-<td><code>--model-config-folder</code></td>
+<td><code>--catalog</code></td>
 <td>string</td>
 <td>""</td>
-<td>Path to folder containing HuggingFace <code>config.json</code>. Overrides <code>--latency-model</code> auto-resolution.</td>
+<td>Path to the <strong>model catalog clone root</strong> (#1774). A model's HuggingFace <code>config.json</code> is read from <code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code> — the layout the authoritative <a href="https://github.com/inference-sim/blis-catalog"><code>blis-catalog</code></a> repository uses, with <code>workloads/</code>, <code>devices/</code>, <code>hardware/</code> and <code>networks/</code> as sibling namespaces under the same root. This is the <strong>only</strong> layout: #1771 deleted the bundled <code>model_configs/</code> tree (blis-catalog is the sole catalog) and the flat <code>&lt;catalog&gt;/&lt;short-name&gt;/config.json</code> transition fallback #1774 had carried. <strong>Path semantics:</strong> a <strong>relative</strong> value is resolved against the process working directory, an <strong>absolute</strong> value is used as given; neither is rewritten. <strong>No default and no search path</strong> — supply this flag or the <code>BLIS_CATALOG</code> environment variable, or the run is refused naming both (#1731). <code>--catalog</code> wins when both are set, and the override is announced on stderr. Replaces the retired <code>--model-config-folder</code>: point <code>--catalog</code> at a scratch clone to use your own config. Registered on <code>run</code>, <code>replay</code>, <code>observe</code> and <code>convert preset</code> — the last two for the workload presets in the <code>workloads/</code> namespace (#1769), not for a model config, which only <code>run</code>/<code>replay</code> resolve. BLIS never fetches or writes a config at run time (NS-6, #1733).</td>
 </tr>
 <tr>
 <td><code>--hardware-config</code></td>
@@ -3980,7 +4017,7 @@
 <h3 id="latency-mode-selection">Latency Mode Selection<a class="headerlink" href="#latency-mode-selection" title="Permanent link">&para;</a></h3>
 <p>The latency model mode is selected based on available configuration:</p>
 <ol>
-<li><strong>Trained-physics mode</strong> (default): Auto-resolves model config from HuggingFace and hardware config from bundled <code>hardware_config.json</code>. Requires <code>--hardware</code> and <code>--tp</code> (loaded from <code>defaults.yaml</code> when available). Uses 13 globally-fitted coefficients (10 beta for roofline corrections with architecture-aware MoE scaling + 3 alpha for CPU overhead) from <code>trained_physics_coefficients</code> in <code>defaults.yaml</code>. Physics-informed basis functions with learned corrections.</li>
+<li><strong>Trained-physics mode</strong> (default): Resolves the model config from the catalog (<code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code>) and the hardware config from the bundled <code>hardware_config.json</code>. Requires <code>--hardware</code> and <code>--tp</code> explicitly (never inferred, NS-6). Uses 13 globally-fitted coefficients (10 beta for roofline corrections with architecture-aware MoE scaling + 3 alpha for CPU overhead) from <code>trained_physics_coefficients</code> in <code>defaults.yaml</code>. Physics-informed basis functions with learned corrections.</li>
 <li><strong>Roofline mode</strong>: If <code>--latency-model roofline</code> is explicitly set with <code>--hardware</code> and <code>--tp</code>. Pure analytical estimation from model architecture and hardware specifications.</li>
 </ol>
 <h2 id="cluster-configuration">Cluster Configuration<a class="headerlink" href="#cluster-configuration" title="Permanent link">&para;</a></h2>
@@ -4398,7 +4435,7 @@
 <tr>
 <td><strong>Preset</strong></td>
 <td><code>--workload &lt;name&gt;</code></td>
-<td>Named preset from <code>defaults.yaml</code>: <code>chatbot</code>, <code>contentgen</code>, <code>summarization</code>, <code>multidoc</code>.</td>
+<td>Named preset read from the catalog (<code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code>, #1769): <code>chatbot</code>, <code>contentgen</code>, <code>summarization</code>, <code>multidoc</code>. Needs <code>--catalog</code> / <code>BLIS_CATALOG</code>, which <code>blis run</code> already requires for the model.</td>
 </tr>
 </tbody>
 </table>
@@ -4552,7 +4589,7 @@
 <td><code>--defaults-filepath</code></td>
 <td>string</td>
 <td>"defaults.yaml"</td>
-<td>Path to <code>defaults.yaml</code>.</td>
+<td>Path to <code>defaults.yaml</code> (shipped constants; workload presets come from the catalog since #1769).</td>
 </tr>
 <tr>
 <td><code>--trace-output</code></td>
@@ -4715,52 +4752,76 @@
 </table>
 <p>When configured, BLIS computes a single fitness score from aggregated metrics. Latency metrics are normalized via <code>1/(1 + value/1000)</code> where <code>value</code> is in ticks (microseconds) and 1000 = 1ms reference (lower is better); throughput metrics via <code>value/(value + reference)</code> where <code>referenceRPS = 100.0</code> and <code>referenceTPS = 10000.0</code> (higher is better). Useful for automated policy comparison across multiple simulation runs.</p>
 <h2 id="defaultsyaml">defaults.yaml<a class="headerlink" href="#defaultsyaml" title="Permanent link">&para;</a></h2>
-<p>The <code>defaults.yaml</code> file serves as a model registry and workload preset store:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Section 1: Hardware/TP mappings (keyed by model ID)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">defaults</span><span class="p">:</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">qwen/qwen3-14b</span><span class="p">:</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">GPU</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">H100</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">tensor_parallelism</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">hf_repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Qwen/Qwen3-14B</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Section 2: Workload presets</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nt">workloads</span><span class="p">:</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nt">chatbot</span><span class="p">:</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="nt">prompt_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nt">prompt_tokens_stdev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="nt">output_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="nt">output_tokens_stdev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="c1"># ... min/max bounds</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1"># Section 3: Trained coefficients (keyed by model+GPU+TP)</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nt">models</span><span class="p">:</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen/qwen3-14b</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="nt">GPU</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">H100</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="nt">tensor_parallelism</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="nt">alpha_coeffs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">8888.09</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.18</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="nt">beta_coeffs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">13578.19</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">39.44</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">27.32</span><span class="p p-Indicator">]</span>
+<p>The <code>defaults.yaml</code> file is a home for shipped constants — trained coefficients, LoRA cost
+terms and KV-offload device physics. It carries neither per-model deployment policy nor
+workload presets: the <code>defaults:</code> block that once mapped a model to a
+<code>GPU</code>/<code>tensor_parallelism</code>/<code>hf_repo</code> triple was removed in #1768, having been unreachable on
+every run path since NS-6 (#1733) made <code>--hardware</code>/<code>--tp</code> required and #1731 made the catalog
+the only model-config source; the <code>workloads:</code> block was removed in #1769, because the named
+presets also existed in the catalog (<code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code>) with nothing keeping
+the two copies in sync. The catalog copy is now the only one.</p>
+<div class="admonition warning">
+<p class="admonition-title">Custom <code>defaults.yaml</code> files must remove the <code>defaults:</code> block (migration note)</p>
+<p>Strict parsing (<code>KnownFields(true)</code>) rejects an undeclared key, so a hand-maintained
+<code>defaults.yaml</code> that still carries a <code>defaults:</code> block now fails to load with
+<code>field defaults not found in type cmd.Config</code>. Delete the block and pass <code>--hardware</code>/<code>--tp</code>
+on the command line. Nothing is lost — no run path read those values.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Custom <code>defaults.yaml</code> files must remove the <code>workloads:</code> block (migration note)</p>
+<p>By the same strict-parsing rule, a hand-maintained <code>defaults.yaml</code> that still carries a
+<code>workloads:</code> block now fails to load with
+<code>field workloads not found in type cmd.Config</code> (#1769). Move the preset to
+<code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code> — the same keys, one preset per file — and locate the
+catalog with <code>--catalog</code> or <code>BLIS_CATALOG</code>. <code>blis run --workload</code>,
+<code>blis convert preset --name</code> and <code>blis observe --workload</code> all read it from there.</p>
+</div>
+<p>These are the top-level keys the file may carry, and strict parsing accepts no others
+(<code>KnownFields(true)</code>, R10 — the authoritative list is <code>cmd.Config</code> in <code>cmd/default_config.go</code>;
+the bundled <code>defaults.yaml</code> is the worked example):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Trained-physics coefficients — ONE GLOBAL SET, not keyed by model, GPU or TP.</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Consulted only by --latency-model trained-physics, and only for a flag the user did not pass.</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">trained_physics_coefficients</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">alpha_coeffs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">15563.199579</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">777.3455</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">45.907545</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># α₀-α₂: API/framework overheads (µs)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">beta_coeffs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.152128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1.36252915</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">...</span><span class="p p-Indicator">]</span><span class="w">      </span><span class="c1"># β₁-β₁₀ + optional β_EP</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># LoRA control-plane cost terms (#1464). Inert unless a run declares adapters.</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nt">lora</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nt">load_base_latency_us</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1500.0</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="c1"># ... bandwidth, per-rank footprint, per-rank step-overhead tiers</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">There is no <code>models:</code> section, and there never was a keyed coefficient table</p>
+<p>Earlier revisions of this page showed a <code>models:</code> list mapping a model+GPU+TP triple to its own
+<code>alpha_coeffs</code>/<code>beta_coeffs</code>. No such section exists — <code>cmd.Config</code> declares no <code>Models</code> field, so
+strict parsing would reject one outright. Coefficients live in the single global
+<code>trained_physics_coefficients</code> block above. The removed <code>defaults:</code> block (#1768) was a different
+thing again: per-model <code>GPU</code>/<code>tensor_parallelism</code>/<code>hf_repo</code>, never coefficients.</p>
+</div>
 <h3 id="resolution-process">Resolution Process<a class="headerlink" href="#resolution-process" title="Permanent link">&para;</a></h3>
 <p>When BLIS starts, it resolves latency configuration through a layered process. Explicit CLI flags always take precedence (R18).</p>
 <p><strong>Hardware and TP defaults resolution (all backends):</strong></p>
-<p>Before any backend-specific logic runs, BLIS loads hardware/TP/vLLM-version defaults from <code>defaults.yaml</code> for the specified <code>--model</code> when those flags are not explicitly provided. This ensures analytical backends (roofline, trained-physics) can auto-resolve without requiring explicit <code>--hardware</code> and <code>--tp</code> for models listed in <code>defaults.yaml</code>.</p>
+<p>Before any backend-specific logic runs, BLIS requires the deployment: <code>--hardware</code> and <code>--tp</code> must both be supplied, on <code>blis run</code> and <code>blis replay</code> alike. Omitting either is refused naming the missing flag (NS-6, #1733). BLIS reads no per-model <code>GPU</code>/<code>tensor_parallelism</code> values from <code>defaults.yaml</code> — inferring a deployment let a run complete and emit metrics for a configuration nobody chose — and as of #1768 the file declares no such keys at all.</p>
 <p><strong>Backend-specific resolution:</strong></p>
 <ol>
 <li>If <code>--latency-model trained-physics</code> (default) or <code>roofline</code>:</li>
-<li>Auto-resolve model config: check <code>model_configs/</code> for existing <code>config.json</code>, fetch from HuggingFace on miss (set <code>HF_TOKEN</code> for gated models)</li>
+<li>Resolve the model config inside the catalog located by <code>--catalog</code> / <code>BLIS_CATALOG</code>, which names the catalog <strong>clone root</strong>: <code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code>, with a transition fallback to the flat <code>&lt;catalog&gt;/&lt;short-name&gt;/config.json</code> (#1774; #1771 removes the fallback). A relative catalog path is resolved against the process working directory, an absolute one is used as given. A run that names no catalog is refused naming both forms (#1731); a model with no entry in <strong>either</strong> layout is refused naming every path looked at and the canonical <code>models/</code> path its entry belongs at — nothing is fetched, and no run writes to the catalog (NS-6). Only ABSENCE falls through to the flat layout: a <code>models/</code> entry that exists but is malformed is reported, never silently replaced by a flat one</li>
 <li>Auto-resolve hardware config from bundled <code>hardware_config.json</code></li>
 <li>For roofline: beta coefficients are computed analytically from model architecture and hardware specs</li>
 <li>For trained-physics: load 13 global coefficients (10 beta for roofline corrections with architecture-aware MoE scaling + 3 alpha for CPU overhead) from <code>trained_physics_coefficients</code> in <code>defaults.yaml</code></li>
-<li><code>--model-config-folder</code> and <code>--hardware-config</code> override auto-resolution when explicitly set</li>
+<li><code>--catalog</code> / <code>BLIS_CATALOG</code> locates the model config (required, no default); <code>--hardware-config</code> overrides auto-resolution when explicitly set</li>
 <li>If <code>--alpha-coeffs</code> and <code>--beta-coeffs</code> are explicitly provided via CLI:</li>
 <li>Use them directly, no <code>defaults.yaml</code> lookup</li>
 </ol>
 <p><strong><code>--total-kv-blocks</code> resolution</strong> (highest priority wins):</p>
 <ol>
 <li><strong>Explicit CLI flag</strong> — if <code>--total-kv-blocks</code> is set, that value is used regardless of backend</li>
-<li><strong>Auto-calculation</strong> (all backends) — when <code>MemoryGiB &gt; 0</code> in the hardware config and <code>config.json</code> is available, <code>CalculateKVBlocks</code> derives the block count from model architecture and GPU memory. BLIS attempts to resolve <code>config.json</code> by checking <code>--model-config-folder</code>, then <code>model_configs/</code> (cached/bundled), then fetching from HuggingFace (set <code>HF_TOKEN</code> for gated models). Failure modes: (a) if <code>MemoryGiB</code> is missing from <code>hardware_config.json</code>, BLIS warns and falls back to the hardcoded default (layer 3); (b) if model architecture params cannot be extracted from <code>config.json</code>, BLIS warns and falls back to the hardcoded default; (c) if the calculation itself fails (e.g., unsupported activation function), BLIS warns and falls back to the hardcoded default. Auto-calculation currently requires SwiGLU-family activations (<code>silu</code>, <code>swiglu</code>, <code>geglu</code>, <code>situ</code> — Kimi-K3's SiTU-GLU, a 3-matrix gated GLU with SwiGLU's weight/FLOP shape); models with other activations (e.g., Falcon's <code>gelu</code>) will fall back to the hardcoded default unless <code>--total-kv-blocks</code> is explicitly set</li>
+<li><strong>Auto-calculation</strong> (all backends) — when <code>MemoryGiB &gt; 0</code> in the hardware config and <code>config.json</code> is available, <code>CalculateKVBlocks</code> derives the block count from model architecture and GPU memory. BLIS resolves <code>config.json</code> as the catalog entry <code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code> (transition fallback: the flat <code>&lt;catalog&gt;/&lt;short-name&gt;/config.json</code>, #1774) inside the catalog located by <code>--catalog</code> / <code>BLIS_CATALOG</code>; there is no step outside that catalog root — an uncatalogued model is refused rather than fetched (NS-6). Failure modes: (a) if <code>MemoryGiB</code> is missing from <code>hardware_config.json</code>, BLIS warns and falls back to the hardcoded default (layer 3); (b) if model architecture params cannot be extracted from <code>config.json</code>, BLIS warns and falls back to the hardcoded default; (c) if the calculation itself fails (e.g., an unsupported activation function), <code>CalculateKVBlocks</code> returns an error and BLIS <strong>aborts with a fatal error</strong> (<code>logrus.Fatalf</code>) rather than falling back. Auto-calculation currently requires SwiGLU-family activations (<code>silu</code>, <code>swiglu</code>, <code>geglu</code>, <code>situ</code> — Kimi-K3's SiTU-GLU, a 3-matrix gated GLU with SwiGLU's weight/FLOP shape); a model with another activation (e.g., Falcon's <code>gelu</code>) therefore aborts the run during auto-calculation unless <code>--total-kv-blocks</code> is set explicitly (which skips auto-calculation)</li>
 <li><strong>Hardcoded default</strong> — 1,000,000 (CLI flag default, used when auto-calculation is unavailable or fails)</li>
 </ol>
+<p>Auto-calculation divides an <strong>aggregate</strong> memory budget (<code>gpu_mem × util × TP</code>, less the weight, activation, non-torch and LoRA-reservation overheads) by the <strong>aggregate</strong> cost of one block (<code>per_GPU_KV_bytes_per_token × block_size × TP</code>) — blocks are global, and each of the TP ranks stores its shard of every block. Before #1846 the denominator was the per-GPU cost alone, which over-estimated the pool by ~TP on every multi-GPU deployment (TP=1 was unaffected). This is an analytical estimate in vLLM's units, not a reproduction of vLLM's per-rank memory profiling, and remains slightly optimistic at high TP. The formula, the measured residual, and when to pin <code>--total-kv-blocks</code> instead are in <a href="../../guide/kv-cache/#how-the-auto-calculated-pool-is-sized">KV Cache Management</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Per-instance capacity with mixed-GPU node pools (#1522)</p>
 <p>When <code>node_pools</code> are configured (via <code>--policy-config</code>) and <code>--total-kv-blocks</code> is <strong>not</strong> explicitly set, each placed instance auto-calculates KV capacity from its <strong>own</strong> pool's <code>gpu_memory_gib</code> — not the single global <code>--hardware</code> GPU. So an H100 pool (80 GiB) and an L40S pool (48 GiB) serving the same role get different block counts. This applies to startup placement, deferred placement (nodes provisioned after start), and autoscaler-created instances. An explicit <code>--total-kv-blocks</code> disables this and forces a uniform global capacity across all instances (layer 1 above wins). A per-GPU capacity smaller than <code>--max-model-len</code> auto-caps that instance's <code>max-model-len</code> to the KV-feasible maximum. If a pool's memory is unavailable or the calc fails, that instance falls back to the global capacity with a warning. Node pools are <code>blis run</code> only.</p>
@@ -4830,6 +4891,18 @@ one changes the ratio by 2×.</p>
   spans nodes so the optimism is visible.</li>
 <li>A negative, NaN or infinite value is rejected rather than silently clamped, at load
   time — so the same malformed file fails identically under either latency backend.</li>
+<li><strong>Unrecognized keys are rejected</strong> (#1728). <code>hardware_config.json</code> is parsed strictly,
+  like every other BLIS config file: a key that is not one of the fields below fails the
+  load with an error naming the key <em>and</em> the GPU entry it appears under, instead of
+  leaving the intended field at 0 (a plausible-but-wrong bandwidth, MFU or memory
+  capacity). Three documentation-only keys are accepted and ignored — <code>_comment</code> and
+  <code>_comment_interconnect</code>, which the bundled file uses to record calibration provenance
+  next to the numbers, plus <code>Provenance</code>, the structured provenance tag catalog <code>hardware/</code>
+  entries carry (R2H2, blis-catalog#10); its enum value is validated by the catalog CI gate,
+  not by this loader. Keys must be spelled canonically: a key differing only in letter
+  case (<code>IntraNodeBwGbps</code>) is also rejected, with the canonical spelling named. Valid
+  keys: <code>TFlopsPeak</code>, <code>TFlopsFP8</code>, <code>BwPeakTBs</code>, <code>mfuPrefill</code>, <code>mfuDecode</code>, <code>MemoryGiB</code>,
+  <code>IntraNodeBwGBps</code>, <code>InterNodeBwGBps</code>, <code>InterNodeHopLatencyUs</code>.</li>
 <li><strong>Migrating from the pre-#1694 <code>InterNodeLatencyUs</code> key:</strong> it was renamed to
   <code>InterNodeHopLatencyUs</code> <strong>and its unit changed</strong> from µs-per-collective to µs-per-hop.
   A config still carrying the old key is <strong>rejected at load</strong> with an error naming the GPU
@@ -4858,6 +4931,23 @@ one changes the ratio by 2×.</p>
 </ul>
 <p>To compare fabrics, change <code>InterNodeBwGBps</code> (a slower fabric never lowers the charged
 cost), or give pools distinct <code>gpu_type</code> entries with different values.</p>
+<div class="admonition note">
+<p class="admonition-title">The catalog's <code>networks/</code> fabric classes state bandwidth, not a PD-transfer base latency</p>
+<p>The catalog's reusable fabric classes (<code>&lt;catalog&gt;/networks/*.yaml</code> — <code>ethernet-100gbe</code>,
+<code>ib-400g</code>, <code>roce-200g</code>) state a nominal <code>InterNodeBwGBps</code>, and that figure <strong>is</strong> the
+PD-transfer bandwidth: there is no separate PD bandwidth number
+(<a href="https://github.com/inference-sim/blis-catalog/pull/10">blis-catalog#10</a>). They carry <strong>no</strong>
+<code>PDTransferBaseLatencyMs</code> — <a href="https://github.com/inference-sim/blis-catalog/pull/12">blis-catalog#12</a>
+removed it, because a fabric class has no inherent per-transfer base latency to state (the
+nominal value was always a <code>0</code> placeholder), and the fabric schema is <em>closed</em>, so the catalog
+CI gate now rejects the key as unknown. The PD-transfer base latency is a <strong>modeling
+estimate</strong>, supplied by <code>--pd-transfer-base-latency</code> (default <code>0.05</code> ms) and owned by
+<a href="https://github.com/inference-sim/blis-registry/issues/10"><code>blis-registry</code></a> (<code>method: assumed</code>);
+the effective value is that number alone, with no catalog <code>0</code> to compose with. BLIS has no
+<code>networks/</code> reader yet (nothing reads a fabric file today) — <code>cmd/catalog_networks_fabric_test.go</code>
+guards the rule so the reader cannot be written against the retired field
+(<a href="https://github.com/inference-sim/inference-sim/issues/1838">#1838</a>).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Node-pool instances use the <code>--hardware</code> entry</p>
 <p>A node-pool instance is calibrated from whichever <code>hardware_config.json</code> entry
@@ -4895,7 +4985,7 @@ for the cost model and its known approximations.</p>
 </tr>
 <tr>
 <td><strong>ModelHardwareConfig</strong></td>
-<td><code>--model</code>, <code>--hardware</code>, <code>--tp</code>, <code>--latency-model</code>, <code>--model-config-folder</code>, <code>--hardware-config</code>, <code>--max-model-len</code>. Placement-derived, no flag: the inter-node network topology (#1530)</td>
+<td><code>--model</code>, <code>--hardware</code>, <code>--tp</code>, <code>--latency-model</code>, <code>--catalog</code> (or <code>BLIS_CATALOG</code>), <code>--hardware-config</code>, <code>--max-model-len</code>. Placement-derived, no flag: the inter-node network topology (#1530)</td>
 </tr>
 <tr>
 <td><strong>PolicyConfig</strong></td>
@@ -4903,7 +4993,7 @@ for the cost model and its known approximations.</p>
 </tr>
 <tr>
 <td><strong>WorkloadConfig</strong></td>
-<td><code>--workload</code>, <code>--workload-spec</code>, <code>--defaults-filepath</code>, <code>--rate</code>, <code>--num-requests</code>, <code>--prompt-tokens*</code>, <code>--output-tokens*</code>, <code>--prefix-tokens</code></td>
+<td><code>--workload</code> (preset read from <code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code>, #1769), <code>--workload-spec</code>, <code>--rate</code>, <code>--num-requests</code>, <code>--prompt-tokens*</code>, <code>--output-tokens*</code>, <code>--prefix-tokens</code></td>
 </tr>
 <tr>
 <td><strong>DeploymentConfig</strong></td>
@@ -4911,7 +5001,7 @@ for the cost model and its known approximations.</p>
 </tr>
 <tr>
 <td><strong>Top-level</strong></td>
-<td><code>--seed</code>, <code>--horizon</code>, <code>--log</code>, <code>--metrics-path</code> (run only), <code>--trace-output</code>, <code>--policy-config</code>, <code>--fitness-weights</code>, <code>--summarize-trace</code></td>
+<td><code>--seed</code>, <code>--horizon</code>, <code>--log</code>, <code>--metrics-path</code> (<code>run</code> and <code>replay</code>), <code>--trace-output</code>, <code>--policy-config</code>, <code>--fitness-weights</code>, <code>--summarize-trace</code></td>
 </tr>
 </tbody>
 </table>
@@ -5157,10 +5247,14 @@ for the cost model and its known approximations.</p>
 <td><code>--results-path</code></td>
 <td>string</td>
 <td>""</td>
-<td>File to write <code>[]SimResult</code> JSON (fields: <code>request_id</code>, <code>ttft_us</code>, <code>e2e_us</code>, <code>input_tokens</code>, <code>output_tokens</code>) for <code>blis calibrate</code> consumption.</td>
+<td>File to write <code>[]SimResult</code> JSON (fields: <code>request_id</code>, <code>ttft_us</code>, <code>e2e_us</code>, <code>input_tokens</code>, <code>output_tokens</code>) for <code>blis calibrate</code> consumption. Replay-only — <code>blis run</code> does not register it.</td>
 </tr>
 </tbody>
 </table>
+<p><code>blis replay</code> also accepts <code>--metrics-path</code> (the aggregate <code>MetricsOutput</code> JSON, documented under
+<a href="#simulation-control">Simulation Control</a>); it is not replay-specific, so it is not repeated in the
+table above. The two are complementary rather than alternatives: <code>--results-path</code> writes per-request
+rows, <code>--metrics-path</code> writes the run aggregate that <code>blis calibrate --sim-metrics</code> reads.</p>
 <hr />
 <h2 id="blis-calibrate">blis calibrate<a class="headerlink" href="#blis-calibrate" title="Permanent link">&para;</a></h2>
 <p>Compares real observed latencies (from <code>blis observe</code>) against simulator predictions (from <code>blis replay</code>) and produces a calibration report with per-metric MAPE, Pearson R, and quality grades.</p>
@@ -5222,7 +5316,9 @@ for the cost model and its known approximations.</p>
 <h2 id="blis-convert">blis convert<a class="headerlink" href="#blis-convert" title="Permanent link">&para;</a></h2>
 <p>Converts external workload formats into BLIS WorkloadSpec v2 YAML. Three subcommands are available.</p>
 <h3 id="blis-convert-preset"><code>blis convert preset</code><a class="headerlink" href="#blis-convert-preset" title="Permanent link">&para;</a></h3>
-<p>Generates a WorkloadSpec from a named preset in <code>defaults.yaml</code>.</p>
+<p>Generates a WorkloadSpec from a named preset in the catalog
+(<code>&lt;catalog&gt;/workloads/&lt;name&gt;.yaml</code>, #1769 — the same definition <code>blis run --workload</code> and
+<code>blis observe --workload</code> read).</p>
 <table>
 <thead>
 <tr>
@@ -5252,10 +5348,10 @@ for the cost model and its known approximations.</p>
 <td>Number of requests.</td>
 </tr>
 <tr>
-<td><code>--defaults-filepath</code></td>
+<td><code>--catalog</code></td>
 <td>string</td>
-<td>"defaults.yaml"</td>
-<td>Path to <code>defaults.yaml</code>.</td>
+<td>""</td>
+<td>Catalog clone root holding <code>workloads/&lt;name&gt;.yaml</code>. No default; <code>BLIS_CATALOG</code> is the fallback (the flag wins when both are set).</td>
 </tr>
 </tbody>
 </table>

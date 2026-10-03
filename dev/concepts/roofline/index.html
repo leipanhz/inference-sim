@@ -973,10 +973,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#manual-explicit-config-paths" class="md-nav__link">
+  <a href="#manual-your-own-catalog" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual: explicit config paths
+        Manual: your own catalog
       
     </span>
   </a>
@@ -1814,6 +1814,8 @@
       
         
       
+        
+      
     
     
     
@@ -1961,6 +1963,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../contributing/external-pr-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External PR Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../contributing/rfc/" class="md-nav__link">
         
   
@@ -2068,10 +2098,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
         
           
-          <label class="md-nav__link" for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
             
   
   
@@ -2089,8 +2119,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2224,10 +2254,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_9" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
         
           
-          <label class="md-nav__link" for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
             
   
   
@@ -2245,8 +2275,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2326,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    System Invariants (INV-1-INV-13)
+    System Invariants
   
 
     
@@ -2408,10 +2438,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_10" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_11" >
         
           
-          <label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
             
   
   
@@ -2429,8 +2459,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3068,10 +3098,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#manual-explicit-config-paths" class="md-nav__link">
+  <a href="#manual-your-own-catalog" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual: explicit config paths
+        Manual: your own catalog
       
     </span>
   </a>
@@ -3115,7 +3145,7 @@
 
 
 <h1 id="roofline-step-time-estimation-logic">Roofline Step Time Estimation Logic<a class="headerlink" href="#roofline-step-time-estimation-logic" title="Permanent link">&para;</a></h1>
-<p>This document describes the analytical approach used to estimate the GPU latency for a single inference step using a roofline model. Roofline is the default latency model in BLIS — it requires no training and works off-the-shelf for any Huggingface LLM whose <code>config.json</code> is saved under <code>model_configs/</code> (auto-fetched from HuggingFace on first use).</p>
+<p>This document describes the analytical approach used to estimate the GPU latency for a single inference step using a roofline model. Roofline is the default latency model in BLIS — it requires no training and works off-the-shelf for any Huggingface LLM whose <code>config.json</code> is committed to the model catalog (the <a href="https://github.com/inference-sim/blis-catalog"><code>blis-catalog</code></a> repository, located via <code>--catalog</code> / <code>BLIS_CATALOG</code>).</p>
 <div class="admonition tip">
 <p class="admonition-title">Trained-Physics: higher accuracy</p>
 <p>For higher accuracy, use <code>--latency-model trained-physics</code> which applies learned correction factors to these roofline basis functions with MoE support. See <a href="../../guide/latency-models/#trained-physics-mode">Trained-Physics Mode</a>.</p>
@@ -3165,13 +3195,16 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./blis<span class="w"> </span>run<span class="w"> </span>--model<span class="w"> </span>qwen/qwen3-14b<span class="w"> </span>--latency-model<span class="w"> </span>roofline<span class="w"> </span>--hardware<span class="w"> </span>H100<span class="w"> </span>--tp<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <p>The flag automatically:
-1. Checks <code>model_configs/</code> for an existing <code>config.json</code> (previously fetched)
-2. Fetches from HuggingFace on miss and writes into <code>model_configs/</code> (supports <code>HF_TOKEN</code> for gated models)</p>
-<p>For models not in <code>defaults.yaml</code>, add an <code>hf_repo</code> entry mapping the BLIS model name to the case-sensitive HuggingFace repo path.</p>
-<h3 id="manual-explicit-config-paths">Manual: explicit config paths<a class="headerlink" href="#manual-explicit-config-paths" title="Permanent link">&para;</a></h3>
-<p>Alternatively, download the <code>config.json</code> manually:</p>
+1. Reads the model's <code>config.json</code> from the catalog located by <code>--catalog</code> / <code>BLIS_CATALOG</code>, at <code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code>
+2. Refuses the run on miss, naming the catalog path the entry belongs at — no run-time fetch, and no run writes to the catalog (NS-6)</p>
+<p>A model runs if and only if it has a catalog entry. To add one, commit its <code>config.json</code> at
+<code>&lt;catalog&gt;/models/&lt;short-name&gt;/config.json</code> in your catalog checkout — <code>defaults.yaml</code> has no
+part in this (its per-model <code>hf_repo</code> mapping was removed in #1768, along with the run-time
+fetch it fed, #1733).</p>
+<h3 id="manual-your-own-catalog">Manual: your own catalog<a class="headerlink" href="#manual-your-own-catalog" title="Permanent link">&para;</a></h3>
+<p>Alternatively, point <code>--catalog</code> at a scratch directory holding your own config:</p>
 <ul>
-<li>Download the <code>config.json</code> for the LLM of your choice into <code>model_configs/</code>. <a href="https://huggingface.co/Qwen/Qwen3-14B/blob/main/config.json">This</a> is an example config.json for <code>Qwen/Qwen3-14B</code>. The recommended file structure is <code>model_configs/qwen3-14b/config.json</code>.</li>
+<li>Download the <code>config.json</code> for the LLM of your choice. <a href="https://huggingface.co/Qwen/Qwen3-14B/blob/main/config.json">This</a> is an example config.json for <code>Qwen/Qwen3-14B</code>. Place it at <code>&lt;catalog&gt;/models/qwen3-14b/config.json</code> and pass that <code>&lt;catalog&gt;</code> to <code>--catalog</code>.</li>
 </ul>
 <h3 id="adding-a-new-gpu">Adding a new GPU<a class="headerlink" href="#adding-a-new-gpu" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3219,6 +3252,7 @@
 </table>
 <blockquote>
 <p>Note: The Peak TFLOPS and BW for a given GPU family might vary by GPU connectivity (e.g. SXM vs PCIe). We recommend a separate entry for each GPU connectivity type - e.g. A100-SXM, A100-PCIe etc in <code>hardware_config.json</code>.</p>
+<p>Note: the file is parsed <strong>strictly</strong> (#1728) — an unrecognized key is a hard error naming the key and the GPU entry, rather than a field that silently reads 0. Spell the keys exactly as above (a case-only variant is also rejected, with the canonical spelling named). You may add <code>_comment</code> and <code>_comment_interconnect</code> strings to record where a calibration came from; both are ignored by the parser.</p>
 </blockquote>
 
 
