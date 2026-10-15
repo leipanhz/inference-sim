@@ -649,8 +649,6 @@
       
         
       
-        
-      
     
     
     
@@ -778,34 +776,6 @@
     
   
     Core Engine
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/roofline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Roofline Estimation
   
 
     
@@ -1017,7 +987,7 @@
   <span class="md-ellipsis">
     
   
-    Latency Models
+    Latency Kernel
   
 
     
@@ -2913,7 +2883,7 @@ the phase built an out-of-date spec <em>faithfully</em>, and the divergence surf
 review, an agent hour after the correction had already been written down.</p>
 <p><strong>The worked example is #1706, not a hypothetical.</strong> Its body proposes <em>"extend the block commit past
 <code>endIndex</code>"</em>. A later comment on the same issue replaces that with the vLLM-faithful shape — <em>"fold
-the external/reloaded credit in </em><em>before</em><em> the chunk/budget clamps"</em> — and explains why the body's
+the external/reloaded credit in <strong>before</strong> the chunk/budget clamps"</em> — and explains why the body's
 shape keeps the chunk count wrong. The second is what was actually built (#1706's own CLAUDE.md
 entry describes the pre-cap ordering). A delivery reading the body alone would have implemented the
 superseded plan and passed every mechanical gate while doing it.</p>

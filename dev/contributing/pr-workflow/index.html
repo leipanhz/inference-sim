@@ -655,8 +655,6 @@
       
         
       
-        
-      
     
     
     
@@ -784,34 +782,6 @@
     
   
     Core Engine
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/roofline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Roofline Estimation
   
 
     
@@ -1023,7 +993,7 @@
   <span class="md-ellipsis">
     
   
-    Latency Models
+    Latency Kernel
   
 
     
@@ -4095,7 +4065,7 @@ to rewrite the body. So an implementation planned from the body alone faithfully
 out-of-date spec, and the divergence surfaces only in review, after the work is done.</p>
 <p>This is not hypothetical. Issue #1706's body proposes <em>"extend the block commit past <code>endIndex</code>"</em>; a
 comment on it later replaces that with the vLLM-faithful shape — <em>"fold the external credit in
-</em><em>before</em><em> the chunk/budget clamps"</em> — and the second is what was actually built. A delivery reading
+<strong>before</strong> the chunk/budget clamps"</em> — and the second is what was actually built. A delivery reading
 the body alone would have implemented the superseded plan.</p>
 <p>Read the refinements with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scripts/deliver-issue-refinements.sh<span class="w"> </span>&lt;issue-number&gt;
